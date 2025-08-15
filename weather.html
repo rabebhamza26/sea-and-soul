@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Météo Tunis</title>
+    <style>
+      /* Styles généraux */
+      body {
+        margin: 0;
+        font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+        background-image: url("images/banner.jpg");
+        background-size: cover;
+        background-position: center;
+        background-attachment: fixed;
+        color: white;
+      }
+
+      nav {
+        background-color: rgba(0, 0, 0, 0.7);
+        padding: 15px 30px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+      }
+
+      nav a img.logo {
+        height: 45px;
+        transition: transform 0.3s;
+      }
+
+      nav a img.logo:hover {
+        transform: scale(1.1);
+      }
+
+      nav ul {
+        list-style: none;
+        display: flex;
+        gap: 25px;
+        margin: 0;
+        padding: 0;
+      }
+
+      nav ul li a {
+        color: #00eaff;
+        text-decoration: none;
+        font-weight: 600;
+        transition: color 0.3s;
+      }
+
+      nav ul li a:hover {
+        color: #00b4d8;
+      }
+
+      /* Bloc météo */
+      .weather-container {
+        margin: 60px auto;
+        max-width: 550px;
+        text-align: center;
+        background: rgba(0, 0, 0, 0.6);
+        padding: 25px;
+        border-radius: 20px;
+        box-shadow: 0 8px 25px rgba(0, 0, 0, 0.4);
+        transition: transform 0.3s, box-shadow 0.3s;
+      }
+
+      .weather-container:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 12px 30px rgba(0, 0, 0, 0.5);
+      }
+
+      .weather-container h2 {
+        font-size: 1.8em;
+        margin-bottom: 20px;
+        color: #00eaff;
+        text-shadow: 1px 1px 5px rgba(0, 0, 0, 0.5);
+      }
+
+      iframe.weather-frame {
+        width: 100%;
+        height: 450px;
+        border: none;
+        border-radius: 15px;
+        box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+        transition: transform 0.3s;
+      }
+
+      iframe.weather-frame:hover {
+        transform: scale(1.02);
+      }
+
+      /* Responsive */
+      @media (max-width: 768px) {
+        .weather-container {
+          margin: 40px 20px;
+          padding: 20px;
+        }
+
+        iframe.weather-frame {
+          height: 350px;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <nav>
+      <a href="index.html"><img src="images/logo.png" class="logo" /></a>
+      <div class="nav-link" id="navLink">
+        <ul>
+          <li><a href="index.html">HOME</a></li>
+          <li><a href="Quiz.html">QUIZ</a></li>
+          <li><a href="weather.html">WEATHER</a></li>
+        </ul>
+      </div>
+    </nav>
+
+    <div class="weather-container">
+      <h2>Météo à Tunis</h2>
+      <iframe
+        class="weather-frame"
+        src="https://www.meteoblue.com/en/weather/widget/three/tunis_tunisia?geoloc=fixed&tempunit=CELSIUS&windunit=KMH&layout=3&days=4"
+        scrolling="no"
+        frameborder="0"
+      >
+      </iframe>
+    </div>
+  </body>
+</html>

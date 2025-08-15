@@ -1,0 +1,274 @@
+<!doctype html>
+<html >
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>University Web Site </title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:ital,wght@0,100;0,200;1,300&family=Oswald:wght@400;500;700&family=Raleway&family=Ubuntu:wght@300;400&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <style>
+      /* Général */
+      body {
+          margin: 0;
+          font-family: 'IBM Plex Sans', sans-serif;
+          background-color: #001a33; /* fallback si image non chargée */
+          color: #fff;
+      }
+      
+      
+      
+     
+      </style>
+      
+  </head>
+  <body>
+    
+    <section class="header">
+        <nav>
+            <a href="index.html">
+              <img src="images/logo.png" class="logo" >
+            </a>
+            <div class="nav-link" id="navLink">
+              
+                <ul>
+                  <li><a href="index.html">HOME</a></li>
+                  <li><a href="Quiz.html">QUIZ</a></li>
+                  <li><a href="weather.html">WEATHER</a></li>
+              </ul>
+            </div>
+           
+        </nav>
+
+      <div class="text-box">
+        <h1>SEA & SOUL </h1>
+        <p>"The ocean and the human body share striking biological and ecological parallels. Both are systems essential for life, with the ocean covering 70% of the Earth's surface and the human body composed of approximately 70% water. The ocean functions as the planet's lungs, producing over half of the oxygen we breathe, while human lungs mirror this role at the individual level. Ocean currents and the circulatory system are alike in their purpose—transporting vital nutrients and regulating temperature. However, just as pollutants like microplastics and toxins disrupt marine ecosystems, human health is impacted by pollutants in water and air. Protecting the ocean is not merely environmental stewardship; it is a necessity for the survival of human life and the planet's equilibrium.
+          " 
+        </p>
+      </div> 
+    </section>
+
+
+    <!--campus-->
+    <section class="campus" class="campus wow fadeInUp" data-wow-delay="0.1s">
+      <h1>ASPECTS OF NATURE</h1>
+      <div class="row">
+        <div class="campus-col">
+          <img src="images/london.jpg">
+            <div class="layer">
+              <h3>The Earth Submerged by Plastic Pollution </h3>
+            </div>
+        </div>
+        <div class="campus-col">
+          <img src="images/newyork.jpg">
+            <div class="layer">
+              <h3>Two Faces of the Ocean: Pristine Beauty and the Impact of Pollution</h3>
+            </div>
+        </div>
+        <div class="campus-col">
+          <img src="images/washington.jpg">
+            <div class="layer">
+              <h3>The Harmony Between Humans and the Ocean:<br>
+                 A Cosmic Connection</h3>
+            </div>
+        </div>
+      </div>
+
+    </section>
+
+<!--facilities-->
+<section class="facilities" class="facilities  wow fadeInUp" data-wow-delay="0.1s">
+
+  <video video autoplay muted loop class="background-video">
+    <source src="podcast.mp4" type="video/mp4">
+    Your browser does not support the video tag.
+  </video>
+ 
+  
+  <div class="container"> <h1>Protecting the Ocean: A Conversation</h1> 
+    <p><i>Listen to Alice and Bob discuss the future of our oceans and brainstorm ways to protect them.</i></p></div>
+     <button class="button" onclick="startConversation()">Start Conversation</button>
+      <div class="section" id="section1" style="display:none;">
+         <h2>Alice: The Ocean's Crisis</h2>
+          <audio id="aliceAudio1" src="alice_intro.mp3" preload="auto"></audio> </div>
+           <div class="section" id="section2" style="display:none;"> 
+            <h2>Bob: What Can We Do?</h2> 
+            <audio id="bobAudio1" src="bob_intro.mp3" preload="auto"></audio> 
+          </div> <div class="section" id="section3" style="display:none;">
+             <h2>Alice: A Possible Solution</h2> <audio id="aliceAudio2" src="alice_solution.mp3" preload="auto"></audio> </div>
+              <div class="section" id="section4" style="display:none;">
+                 <h2>Bob: Accountability and Action</h2>
+                  <audio id="bobAudio2" src="bob_solution.mp3" preload="auto"></audio> </div>
+                   <div class="section" id="section5" style="display:none;"> <h2>Alice & Bob: Call to Action</h2>
+                     <audio id="closingAudio" src="closing_message.mp3" preload="auto"></audio> </div> </div> 
+                     <script>
+                      let currentSection = 0;
+                      let sections = [
+                          "section1", "section2", "section3", "section4", "section5"
+                      ];
+                      let audioElements = [
+                          "aliceAudio1", "bobAudio1", "aliceAudio2", "bobAudio2", "closingAudio"
+                      ];
+              
+                      function startConversation() {
+                          document.querySelector("button").style.display = "none"; // Hide start button
+                          showNextSection(); // Start the conversation
+                      }
+              
+                      function showNextSection() {
+                          if (currentSection < sections.length) {
+                              let section = document.getElementById(sections[currentSection]);
+                              section.style.display = "block";
+                              let audio = document.getElementById(audioElements[currentSection]);
+                              audio.play(); // Play the current audio clip
+              
+                              // Move to next section after the audio ends
+                              audio.onended = function() {
+                                  currentSection++;
+                                  section.style.display = "none"; // Hide the current section
+                                  showNextSection(); // Show the next section
+                              };
+                          }
+                      }
+                  </script>
+
+</section>
+
+
+
+
+
+<!-- Ocean and Humans Quiz -->
+<section class="quiz" class="quiz  wow fadeInUp" data-wow-delay="0.1s">
+  <h1>Ocean and Humans Quiz</h1>
+  <p>Test your knowledge about the relationship between the ocean and humanity!</p>
+  <form id="quizForm">
+    <div class="question">
+      <h3>1. What percentage of the Earth’s oxygen is produced by the ocean?</h3>
+      <label><input type="radio" name="q1" value="50"> 50%</label><br>
+      <label><input type="radio" name="q1" value="70"> 70%</label><br>
+      <label><input type="radio" name="q1" value="85"> 85%</label>
+    </div>
+    <div class="question">
+      <h3>2. How much of the ocean remains unexplored?</h3>
+      <label><input type="radio" name="q2" value="50"> 50%</label><br>
+      <label><input type="radio" name="q2" value="80"> 80%</label><br>
+      <label><input type="radio" name="q2" value="95"> 95%</label>
+    </div>
+    <div class="question">
+      <h3>3. Which activity is a major contributor to ocean pollution?</h3>
+      <label><input type="radio" name="q3" value="Farming"> Farming</label><br>
+      <label><input type="radio" name="q3" value="Fishing"> Fishing</label><br>
+      <label><input type="radio" name="q3" value="Plastic Waste"> Plastic Waste</label>
+    </div>
+    <div class="question">
+      <h3>4. What is the largest marine ecosystem in the world?</h3>
+      <label><input type="radio" name="q4" value="Great Barrier Reef"> Great Barrier Reef</label><br>
+      <label><input type="radio" name="q4" value="Coral Triangle"> Coral Triangle</label><br>
+      <label><input type="radio" name="q4" value="Sargasso Sea"> Sargasso Sea</label>
+    </div>
+    <div class="question">
+      <h3>5. What is the primary cause of ocean acidification?</h3>
+      <label><input type="radio" name="q5" value="Deforestation"> Deforestation</label><br>
+      <label><input type="radio" name="q5" value="Carbon Dioxide Emissions"> Carbon Dioxide Emissions</label><br>
+      <label><input type="radio" name="q5" value="Overfishing"> Overfishing</label>
+    </div>
+    <div class="question">
+      <h3>6. Which ocean is the largest on Earth?</h3>
+      <label><input type="radio" name="q6" value="Atlantic Ocean"> Atlantic Ocean</label><br>
+      <label><input type="radio" name="q6" value="Indian Ocean"> Indian Ocean</label><br>
+      <label><input type="radio" name="q6" value="Pacific Ocean"> Pacific Ocean</label>
+    </div>
+    <div class="question">
+      <h3>7. What is the primary function of ocean currents?</h3>
+      <label><input type="radio" name="q7" value="Regulate climate"> Regulate climate</label><br>
+      <label><input type="radio" name="q7" value="Carry fish species"> Carry fish species</label><br>
+      <label><input type="radio" name="q7" value="Produce oxygen"> Produce oxygen</label>
+    </div>
+    <div class="question">
+      <h3>8. What is the largest source of ocean pollution?</h3>
+      <label><input type="radio" name="q8" value="Plastic Waste"> Plastic Waste</label><br>
+      <label><input type="radio" name="q8" value="Oil Spills"> Oil Spills</label><br>
+      <label><input type="radio" name="q8" value="Chemical Runoff"> Chemical Runoff</label>
+    </div>
+   <button id="confuseButton"type="button" onclick="submitQuiz()">Submit</button>
+<p id="message"></p>
+ 
+</form>
+  <p id="quizResult"></p>
+</section>
+
+<footer class="footer">
+  <div class="footer-content">
+    <div class="footer-section">
+      <h3>Bienvenue à notre site</h3>
+    </div>
+    <div class="footer-section">
+      <h3>Quick Links</h3>
+      <ul>
+        <li><a href="index.html">HOME</a></li>
+        <li><a href="Quiz.html">QUIZ</a></li>
+        <li><a href="weather.html">WEATHER</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <p>&copy; 2024 Your Company. All rights reserved. <a href="#">Privacy Policy</a></p>
+  </div>
+</footer>
+
+
+<script>
+  function submitQuiz() {
+    const answers = {
+      q1: "70",
+      q2: "80",
+      q3: "Plastic Waste",
+      q4: "Great Barrier Reef",
+      q5: "Carbon Dioxide Emissions",
+      q6: "Pacific Ocean",
+      q7: "Regulate climate",
+      q8: "Plastic Waste"
+    };
+
+    let score = 0;
+    const form = document.getElementById("quizForm");
+    const result = document.getElementById("quizResult");
+
+    for (let question in answers) {
+      const selected = form[question].value;
+      if (selected === answers[question]) {
+        score++;
+      }
+    }
+
+    result.textContent = `You scored ${score} out of ${Object.keys(answers).length}!`;
+  }
+</script>
+
+    <!--javascript for toggle menu--->
+    <script>
+        var navLink = document.getElementById("navLink");
+        function showMenu(){
+            navLink.style.right = "0";
+        }
+        function hideMenu(){
+            navLink.style.right = "-200px";
+        }
+   </script>
+
+   <!-- Link to Animate.css -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
+<!-- Link to WOW.js -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/wow.js/1.1.2/wow.min.js"></script>
+<script>
+  new WOW().init(); // Initialisation de WOW.js
+</script>
+
+
+   
+    
+  </body>
+</html>

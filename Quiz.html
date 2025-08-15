@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Ocean Quiz</title>
+    <link rel="stylesheet" href="style.css" />
+
+    <style>
+      body {
+        margin: 0;
+        font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+        background-image: url("images/banner.jpg");
+        background-size: cover;
+        background-position: center;
+        background-attachment: fixed;
+        color: white;
+      }
+
+      nav {
+        background-color: rgba(0, 0, 0, 0.7);
+        padding: 15px 30px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+      }
+
+      nav a img.logo {
+        height: 45px;
+        transition: transform 0.3s;
+      }
+
+      nav a img.logo:hover {
+        transform: scale(1.1);
+      }
+
+      nav ul {
+        list-style: none;
+        display: flex;
+        gap: 25px;
+        margin: 0;
+        padding: 0;
+      }
+
+      nav ul li a {
+        color: #00eaff;
+        text-decoration: none;
+        font-weight: 600;
+        transition: color 0.3s;
+      }
+
+      nav ul li a:hover {
+        color: #00b4d8;
+      }
+
+      section.quiz {
+        background-color: rgba(0, 0, 0, 0.75);
+        max-width: 900px;
+        margin: 60px auto;
+        padding: 30px 25px;
+        border-radius: 20px;
+        box-shadow: 0 8px 25px rgba(0, 0, 0, 0.5);
+      }
+
+      section.quiz h1 {
+        color: #00eaff;
+        font-size: 2em;
+        margin-bottom: 20px;
+        text-align: center;
+        text-shadow: 1px 1px 5px rgba(0, 0, 0, 0.6);
+      }
+
+      section.quiz h3 {
+        color: #00b4d8;
+        margin: 15px 0 10px;
+      }
+
+      .question label {
+        display: block;
+        margin: 5px 0;
+        font-size: 1.05em;
+        cursor: pointer;
+      }
+
+      button#confuseButton {
+        background-color: #00b4d8;
+        color: white;
+        font-size: 16px;
+        padding: 12px 25px;
+        border: none;
+        border-radius: 8px;
+        cursor: pointer;
+        margin-top: 20px;
+        transition: all 0.3s;
+      }
+
+      button#confuseButton:hover {
+        background-color: #0077b6;
+        transform: scale(1.05);
+      }
+
+      #quizResult {
+        margin-top: 20px;
+        font-size: 1.2em;
+        font-weight: bold;
+        color: #00eaff;
+        text-align: center;
+      }
+
+      #message {
+        color: #ffcc00;
+        font-weight: bold;
+      }
+
+      /* Responsive */
+      @media (max-width: 768px) {
+        section.quiz {
+          margin: 40px 15px;
+          padding: 25px 15px;
+        }
+
+        nav ul {
+          gap: 15px;
+        }
+
+        button#confuseButton {
+          width: 100%;
+        }
+      }
+    </style>
+
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+    <script src="https://unpkg.com/react/umd/react.development.js"></script>
+    <script src="https://unpkg.com/react-dom/umd/react-dom.development.js"></script>
+  </head>
+  <body>
+    <nav>
+      <a href="index.html">
+        <img src="images/logo.png" class="logo" />
+      </a>
+      <div class="nav-link" id="navLink">
+        <ul>
+          <li><a href="index.html">HOME</a></li>
+          <li><a href="Quiz.html">QUIZ</a></li>
+          <li><a href="weather.html">WEATHER</a></li>
+        </ul>
+      </div>
+    </nav>
+
+    <!-- Ocean and Humans Quiz -->
+    <section class="quiz" data-wow-delay="0.1s">
+      <h1>Ocean and Humans Quiz</h1>
+      <p>
+        Test your knowledge about the relationship between the ocean and
+        humanity!
+      </p>
+      <form id="quizForm">
+        <div class="question">
+          <h3>
+            1. What percentage of the Earth’s oxygen is produced by the ocean?
+          </h3>
+          <label><input type="radio" name="q1" value="50" /> 50%</label><br />
+          <label><input type="radio" name="q1" value="70" /> 70%</label><br />
+          <label><input type="radio" name="q1" value="85" /> 85%</label>
+        </div>
+        <div class="question">
+          <h3>2. How much of the ocean remains unexplored?</h3>
+          <label><input type="radio" name="q2" value="50" /> 50%</label><br />
+          <label><input type="radio" name="q2" value="80" /> 80%</label><br />
+          <label><input type="radio" name="q2" value="95" /> 95%</label>
+        </div>
+        <div class="question">
+          <h3>3. Which activity is a major contributor to ocean pollution?</h3>
+          <label><input type="radio" name="q3" value="Farming" /> Farming</label
+          ><br />
+          <label><input type="radio" name="q3" value="Fishing" /> Fishing</label
+          ><br />
+          <label
+            ><input type="radio" name="q3" value="Plastic Waste" /> Plastic
+            Waste</label
+          >
+        </div>
+        <div class="question">
+          <h3>4. What is the largest marine ecosystem in the world?</h3>
+          <label
+            ><input type="radio" name="q4" value="Great Barrier Reef" /> Great
+            Barrier Reef</label
+          ><br />
+          <label
+            ><input type="radio" name="q4" value="Coral Triangle" /> Coral
+            Triangle</label
+          ><br />
+          <label
+            ><input type="radio" name="q4" value="Sargasso Sea" /> Sargasso
+            Sea</label
+          >
+        </div>
+        <div class="question">
+          <h3>5. What is the primary cause of ocean acidification?</h3>
+          <label
+            ><input type="radio" name="q5" value="Deforestation" />
+            Deforestation</label
+          ><br />
+          <label
+            ><input type="radio" name="q5" value="Carbon Dioxide Emissions" />
+            Carbon Dioxide Emissions</label
+          ><br />
+          <label
+            ><input type="radio" name="q5" value="Overfishing" />
+            Overfishing</label
+          >
+        </div>
+        <div class="question">
+          <h3>6. Which ocean is the largest on Earth?</h3>
+          <label
+            ><input type="radio" name="q6" value="Atlantic Ocean" /> Atlantic
+            Ocean</label
+          ><br />
+          <label
+            ><input type="radio" name="q6" value="Indian Ocean" /> Indian
+            Ocean</label
+          ><br />
+          <label
+            ><input type="radio" name="q6" value="Pacific Ocean" /> Pacific
+            Ocean</label
+          >
+        </div>
+        <div class="question">
+          <h3>7. What is the primary function of ocean currents?</h3>
+          <label
+            ><input type="radio" name="q7" value="Regulate climate" /> Regulate
+            climate</label
+          ><br />
+          <label
+            ><input type="radio" name="q7" value="Carry fish species" /> Carry
+            fish species</label
+          ><br />
+          <label
+            ><input type="radio" name="q7" value="Produce oxygen" /> Produce
+            oxygen</label
+          >
+        </div>
+        <div class="question">
+          <h3>8. What is the largest source of ocean pollution?</h3>
+          <label
+            ><input type="radio" name="q8" value="Plastic Waste" /> Plastic
+            Waste</label
+          ><br />
+          <label
+            ><input type="radio" name="q8" value="Oil Spills" /> Oil
+            Spills</label
+          ><br />
+          <label
+            ><input type="radio" name="q8" value="Chemical Runoff" /> Chemical
+            Runoff</label
+          >
+        </div>
+        <button id="confuseButton" type="button" onclick="submitQuiz()">
+          Submit
+        </button>
+        <p id="message"></p>
+      </form>
+      <p id="quizResult"></p>
+    </section>
+
+    <script>
+      function submitQuiz() {
+        const answers = {
+          q1: "70",
+          q2: "80",
+          q3: "Plastic Waste",
+          q4: "Great Barrier Reef",
+          q5: "Carbon Dioxide Emissions",
+          q6: "Pacific Ocean",
+          q7: "Regulate climate",
+          q8: "Plastic Waste",
+        };
+
+        let score = 0;
+        const form = document.getElementById("quizForm");
+        const result = document.getElementById("quizResult");
+
+        for (let question in answers) {
+          const selected = form[question].value;
+          if (selected === answers[question]) {
+            score++;
+          }
+        }
+
+        result.textContent = `You scored ${score} out of ${
+          Object.keys(answers).length
+        }!`;
+      }
+    </script>
+  </body>
+</html>
